@@ -202,7 +202,7 @@ public class Main {
 
 ```
 
-## 三：Object类的方法（所有类的父类）
+## 四：Object类的方法（所有类的父类）
 
 1：Object包含的成员函数
 
