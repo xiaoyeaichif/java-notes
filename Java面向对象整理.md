@@ -1,5 +1,7 @@
 # Java面向对象
+
 ## 一：封装特性
+
 - 定义：封装是面向对象的特性之一，通过不同的权限解释器，从而获得不同的权限，执行后续操作。
 - 固有权限：public,protected,default,private。权限依次从高到低。
 
@@ -11,27 +13,31 @@
 | `private`                |   ✅   |   ❌   |  ❌   | ❌        |
 
 - 1:`public`：任何地方都可以访问，任何地方都可以修改。
+  
 ```Java
 public int age;
 ```
 
 - 2:`protected` —— 受保护的：同包+子类可以访问
+
 ```Java
 protected String school;
 ```
 
 - 3:`default` —— 默认的：同包可以访问，子类也不能进行访问。
+  
 ```java
 int score; // 没有写任何权限修饰符
 ```  
 
-
 - 4:`private` —— 私有的，仅当前类可访问
+  
 ```Java
 private String name;
 ```
 
 例子：假设我们有两个包：com.a 和 com.b，其中：
+
 ```Java
 // com.a.Person.java
 package com.a;
@@ -42,6 +48,7 @@ public class Person {
     private String d = "private";
 }
 ```
+
 ```Java
 // com.b.Test.java
 package com.b;
@@ -57,8 +64,11 @@ public class Test extends Person {
     }
 }
 ```
+
 - 继承的目的：不让外部随便修改对象的属性，只能通过方法修改。
+  
 - JavaBean：将属性私有化，提供get/set方法，通过方法修改属性。
+  
 ```Java
 class Person{
     private int age;
@@ -84,16 +94,20 @@ class Person{
 ```
 
 ## 二：继承特性
+
 1：定义：父类和子类之间存在继承关系，子类对象可以指向父类对象，父类对象指向子类对象。
 2：作用：降低代码的冗余度，提高代码的扩展性。（本质上就是想减少代码重复）
 3：语法：extends的使用
+
 ```java
 class P1 extens P2{
     // 继承父类的属性和方法
 }
 // 上面的语法就是P1类继承P2类的写法
 ```
+
 比如：
+
 ```java
 class Person{
     private int age;
@@ -141,17 +155,19 @@ public class PersonTest
 
 4：注意：继承也是有权限之分的，一般情形下使用public较多。
 
-
 ## 三：多态特性
+
 1：定义：多态特性是指同一个方法在不同的子类中具有不同的功能，即子类重写了父类中的方法，这种行为就称为多态。（同一个方法调用，实现不同的行为）
 2：优势：可扩展性强，新增一个子类不需要修改原有的代码。
 3：缺点：由于多态是在继承的基础上实现的，所以在创建一个子类对象的时候，会创建父类，会有内存资源的消耗。
 4：多态实现的条件
+
 - 继承
 - 方法重写：需要写一个和父类方法返回值以及参数值相同的方法，只是方法体不同。
 - 父类的引用指向子类
   
 5：例子
+
 ```java
 class Animal {
     public void speak() {
@@ -187,21 +203,33 @@ public class Main {
 ```
 
 ## 三：Object类的方法（所有类的父类）
-1：Object包含的成员函数
--  toString()----> 这个类也是需要我们重写的
--  equals()---->这个类是需要我们重写的
--  hashCode()
--  getClass()---->获取当前对象运行时的“真实类”（Class 类型对象）。
--  clone()
--  wait()---->多线程中常用
--  notify()---->多线程中常用
--  notifyAll()---->多线程中常用
--  finalize()---->多线程中常用
 
+1：Object包含的成员函数
+
+- toString()--> 这个类也需要我们重写
+  
+- equals()---->这个类是需要我们重写的
+  
+- hashCode()
+  
+- getClass()---->获取当前对象运行时的“真实类”（Class 类型对象）。
+  
+- clone()
+  
+- wait()---->多线程中常用
+  
+- notify()---->多线程中常用
+  
+- notifyAll()---->多线程中常用
+  
+- finalize()---->多线程中常用
+  
 2：常见函数的重写
+
 - equals()---->判断两个对象是否相等
 
 不重写导致的危害
+
 ```java
 // 重写equals方法
 class Person{
@@ -241,6 +269,7 @@ public boolean equals(Object obj) {
 ```
 
 重写equals方法
+
 ```java
 class Person{
     private String name;
@@ -310,8 +339,11 @@ public class EqualTest {
 */
 
 ```
+
 重写toString方法
+
 1.重写toString方法，返回对象的字符串表示。
+
 ```java
 public class EqualTest {
 
@@ -369,6 +401,7 @@ class Person{
 ```
 
 重写 hashCode方法
+
 ```java
 public class EqualTest {
 
